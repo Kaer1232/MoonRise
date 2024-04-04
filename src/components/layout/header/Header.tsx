@@ -1,8 +1,9 @@
 import { readConfigFile } from "typescript";
 
-const Headers:FC = () => {
+const Headers: React.FC = () => {
     return(
         <div>
+            GIpidor
         </div>
     )
 }
