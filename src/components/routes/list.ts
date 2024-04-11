@@ -1,5 +1,5 @@
 import Home from '../pages/home/Home';
-export const routes =
+export const routi =
 [
     {
       path: '/',

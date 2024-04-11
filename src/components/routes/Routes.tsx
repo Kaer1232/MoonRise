@@ -1,21 +1,21 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
-import { routes } from './list';
+import { routi } from './list';
 
 const Routess: React.FC = () => {
   const isAuth = true;
   return (
     <Router>
       <Routes>
-        {routes.map((route) => {
-          if (route.auth && !isAuth)
+        {routi.map((routi) => {
+          if (routi.auth && !isAuth)  
             return false;
           return (
             <Route
-              path={route.path}
-              key={`route ${route.path}`}
+              path={routi.path}
+              key={`route ${routi.path}`}
             >
-              <route.element />
+              <routi.element />
             </Route>
           )
         })}
