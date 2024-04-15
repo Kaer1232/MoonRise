@@ -1,4 +1,5 @@
 import Home from '../pages/home/Home';
+import Messages from '../pages/message/Messages';
 export const routi =
 [
     {
@@ -13,7 +14,7 @@ export const routi =
       },
       {
         path: '/messages/:id',
-      element: Home,
+      element: Messages,
       auth: true,  
       },
       {
@@ -25,5 +26,15 @@ export const routi =
         path: '/auth',
       element: Home,
       auth: false,  
-      }
+      },
+      {
+        path: '/game',
+        element: Home,
+        auth: true,
+      },
+      {
+        path: '/aith',
+        element: Home,
+        auth: false,
+      },
 ]

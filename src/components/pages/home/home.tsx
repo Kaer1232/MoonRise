@@ -1,19 +1,20 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { Button } from "@mui/material";
-import Headers from "../../layout/header/Header";
-import Sidebar from "../../layout/sidebar/Sidebar";
 import { Routes, Route } from "react-router-dom";
+import { Box } from '@mui/system';
+import AddPost from "./AddPost";
+import { IPost } from "../../../type";
+import { Posts } from "./Posts";
+import { inithialPost } from "./inithialPost";
 
 const Home: FC = () => {
+  const [posts, setPost] = useState<IPost[]>(inithialPost)
   return (
-    <div>
-      <div>
-        <Routes>
-          Home
-        <Button variant="contained">Hello world</Button>
-        </Routes>
-      </div>
-    </div>
+    <Box alignItems={'center'}>
+      <AddPost setPost={setPost}/>
+      <Posts posts={posts}/>
+    </Box>
+    
   );
 };
 

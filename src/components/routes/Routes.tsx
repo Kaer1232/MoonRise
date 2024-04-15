@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import { routi } from './list';
+import Layout from '../layout/layout';
 
 const Routess: React.FC = () => {
   const isAuth = true;
@@ -15,6 +16,7 @@ const Routess: React.FC = () => {
               path={routi.path}
               key={`route ${routi.path}`}
             >
+              <Layout/>
               <routi.element />
             </Route>
           )
