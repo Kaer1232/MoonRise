@@ -10,7 +10,7 @@ const Headers: React.FC = () => {
     return(
         <header className={styles.header}>
             <div className={styles['image-wrapper']}>
-                <img src={logoImg} alt=""/>
+                <img src="" alt=""/>
             </div>
             <div className={styles.wrapper}>
                 {!IsSearchActive &&

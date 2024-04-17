@@ -18,6 +18,7 @@ const UserItem: React.FC = () => {
     }
 ]
   return (
+    
     <div>
       <Box
         sx={{
@@ -34,6 +35,7 @@ const UserItem: React.FC = () => {
             borderRadius: '10px',
           }}
         >
+          
           {user.map(user => (
           <Link
             key={user.id}
@@ -82,7 +84,6 @@ const UserItem: React.FC = () => {
           </Link>
           ))}
         </Card>
-       
       </Box>
     </div>
   );

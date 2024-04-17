@@ -1,5 +1,8 @@
+import Auth from '../pages/auth/auth';
+import Friends from '../pages/friends/Friends';
 import Home from '../pages/home/Home';
 import Messages from '../pages/message/Messages';
+import Profile from '../pages/profile/profile';
 export const routi =
 [
     {
@@ -8,33 +11,28 @@ export const routi =
     auth: true,  
     },
     {
-        path: '/profile/:id',
-      element: Home,
+        path: '/profile',
+      element: Profile,
       auth: true,  
       },
       {
-        path: '/messages/:id',
+        path: '/messages',
       element: Messages,
       auth: true,  
       },
       {
-        path: '/friends/:id',
-      element: Home,
+        path: '/friends',
+      element: Friends,
       auth: true,  
       },
       {
         path: '/auth',
-      element: Home,
+      element: Auth,
       auth: false,  
       },
       {
         path: '/game',
         element: Home,
         auth: true,
-      },
-      {
-        path: '/aith',
-        element: Home,
-        auth: false,
       },
 ]

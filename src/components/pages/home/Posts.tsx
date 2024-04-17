@@ -17,7 +17,8 @@ export const Posts: React.FC<IPosts> = ({ posts }) => {
             borderRadius: '30px',
             padding: 3,
             width: 1000,
-            margin: 2.5,
+            marginTop: 2,
+            marginLeft: 10,
           }}
           key={`Post-${idx}`}>
             <div style={{ display: "flex"}}>

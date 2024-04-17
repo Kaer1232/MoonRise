@@ -4,7 +4,7 @@ import { IMenuItem } from "../../../../type"
 export const menu:IMenuItem[] = [
     {
         title: 'Моя страница',
-        link: '/profile',
+        link: '/',
         icon: Icons.Home
     },
     {

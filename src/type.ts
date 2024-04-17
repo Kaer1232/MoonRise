@@ -11,6 +11,11 @@ export interface IUser{
     inNetwork: boolean;
 }
 
+export interface IUserData{
+  email: string;
+  password: string;
+}
+
 export interface IPost {
   author: IUser
   createdAdd: string;
