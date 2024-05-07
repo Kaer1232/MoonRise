@@ -27,9 +27,15 @@ export const menu:IMenuItem[] = [
         link: '/games',
         icon: Icons.GamepadSharp
     },
+    /*
     {
         title: 'Авторизация',
         link: '/auth',
         icon: Icons.AutoGraph
-    }
+    },
+    {
+        title: 'Выход',
+        link: '/logout',
+        icon: Icons.ExitToApp
+    }*/
 ]

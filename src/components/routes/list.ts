@@ -1,3 +1,4 @@
+import path from 'path';
 import Auth from '../pages/auth/auth';
 import Friends from '../pages/friends/Friends';
 import Home from '../pages/home/Home';
@@ -8,7 +9,7 @@ export const routi =
     {
       path: '/',
     element: Home,
-    auth: true,  
+    auth: false,  
     },
     {
         path: '/profile',
@@ -33,6 +34,6 @@ export const routi =
       {
         path: '/game',
         element: Home,
-        auth: true,
+        auth: false,
       },
 ]

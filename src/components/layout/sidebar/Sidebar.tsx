@@ -5,12 +5,13 @@ import UserItem from "./UserItems";
 import MenuItems from './Menu/MenuItems';
 import { Button, Card} from "@mui/material";
 import NotAuth from "./NotAuth";
+import { useAuth } from "../../providers/useAuth";
 
 const Sidebar: React.FC = () => {
-    const isAuth = true;
+    const {user} = useAuth()
     return (
         <div>
-            {isAuth ? <UserItem />: <NotAuth/>} 
+            {user ? <UserItem />: <NotAuth/>} 
            <MenuItems/>
         </div>
     )

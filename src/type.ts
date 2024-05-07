@@ -8,7 +8,6 @@ export interface IUser{
     id: string;
     avatar: string;
     name: string;
-    inNetwork: boolean;
 }
 
 export interface IUserData{
@@ -27,4 +26,9 @@ export interface IMenuItem{
     title: string;
     link: string;
     icon: OverridableComponent<SvgIconTypeMap<{}, 'svg'>> & { muiName: string}
+}
+
+export interface IMessage{
+  user: IUser,
+  message: string
 }

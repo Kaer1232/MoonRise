@@ -1,22 +1,26 @@
 import { IPost } from "../../../type";
 
 export const inithialPost: IPost[] = [
+  {
+    author: {
+      id: '{users.id[]}',
+      name: 'Alexander Kasatkin',
+      avatar: "https://i.ytimg.com/vi/9O52EM5-HC0/maxresdefault.jpg",
+    },
+    content: "Дорогие искатели экшена, рады представить вам нашу новую игру KasatkinStrategy, которая погрузит вас в захватывающий мир ангаров, домиков и машинок!!!\n Сейчас игра в раннем доступе, но вы прямо сейчас можете опробовать её. Станьте одним из первых, кто познает этот великолепный мир!\n Из нововведений в игре есть: \n1)Динамическая погода! \n 2)Возможность строить ангары и домики!\n 3)Возможность выделять юнитов не только вверх по диагонали но и вниз!!!",
+    createdAdd: "17 Апреля 14:12",
+    image: ['https://wp.pulsar42.sc/wp-content/uploads/2018/10/Drake-Kraken-Interior-V006.jpg',
+    ],
+  },
     {
         author: {
           id: '{users.id[]}',
-          name: 'John Smith',
-          avatar: "https://i.pravatar.cc/150?img=1",
-          inNetwork: true,
+          name: 'Alexey Klimov',
+          avatar: "https://i.playground.ru/p/7XnkBGmKW4k4EFWs7372cA.jpeg",
         },
-        content: "Hello World!",
-        createdAdd: "Вечность назад)",
-        image: ['https://i.pravatar.cc/150?img=6',
-          'https://i.pravatar.cc/150?img=2',
-          'https://i.pravatar.cc/150?img=3',
-          'https://i.pravatar.cc/150?img=4',
-          'https://i.pravatar.cc/150?img=5',
-          'https://i.pravatar.cc/150?img=7'
+        content: "Добро пожаловать дорогой друг в новое веб-приложение MoonRise web-chat.\n На данный момент приложение разрабатывается для демонстрации навыков программирования нашей небольшой команды.\n Сейчас функциональность приложения не такая большая, но дальше будет больше! Если у вас до сих пор нет профиля в нашем веб-приложении пропиши в месте для ссылки /auth, чтобы перейти на страничку регистрации! Каждая история начинается с малого и этот проект не исключение. Кто знает, что с ним будет через год или два. Следи за новостями, друг!\n С уважением, разработчики CodeNEXT",
+        createdAdd: "17 Апреля 10:43",
+        image: ['https://smashinglogo.com/v3/envision/image.jpg?id=0557c037-ef24-4b62-bb8a-20737f5bf189&format=desktop',
         ],
       },
-
 ]

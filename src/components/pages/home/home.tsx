@@ -8,11 +8,11 @@ import { Posts } from "./Posts";
 import { inithialPost } from "./inithialPost";
 
 const Home: FC = () => {
-  const [posts, setPost] = useState<IPost[]>(inithialPost)
   return (
+  
     <Box alignItems={'center'}>
-      <AddPost setPost={setPost}/>
-      <Posts posts={posts}/>
+      <AddPost/>
+      <Posts/>
     </Box>
     
   );

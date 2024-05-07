@@ -1,13 +1,14 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { routi } from './list';
+import { useAuth } from '../providers/useAuth';
 
 const Routess: React.FC = () => {
-  const isAuth = true;
+  const {user} = useAuth()
   return (
     <Routes>
       {routi.map((routi) => {
-        if (routi.auth && !isAuth)  
+        if (routi.auth && !user)  
           return false;
         return (
           <Route

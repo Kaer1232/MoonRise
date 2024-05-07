@@ -20,7 +20,7 @@ const NotAuth: React.FC = () => {
         }}
       >
         <Link
-          to={"/profile/${user.id}"}
+          to={"/auth"}
           style={{
             display: 'flex',
             alignItems: 'center',
@@ -28,7 +28,7 @@ const NotAuth: React.FC = () => {
             color: '#111',
           }}
         >
-            <Button variant="text">Авторизация</Button>
+            <Button type='submit' variant="text">Авторизация</Button>
         </Link>
       </Card>
     </Box>

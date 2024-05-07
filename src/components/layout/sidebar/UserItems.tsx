@@ -1,91 +1,113 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Box } from '@mui/system';
-import { Link, useActionData, useResolvedPath } from 'react-router-dom';
-import { Avatar, Card, MenuItem } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
-import MenuItems from './Menu/MenuItems';
-import { IUser } from '../../../type';
-
+import { Link } from 'react-router-dom';
+import { Avatar, Button, Card } from '@mui/material';
+import { signOut } from 'firebase/auth';
+import { useAuth } from '../../providers/useAuth';
+import { useEffect } from 'react';
+import firebase from 'firebase/app';
+import 'firebase/storage'
 
 const UserItem: React.FC = () => {
+  const { ga, user } = useAuth();
+  const [currentUser, setCurrentUser] = useState({
+    id: user?.id || '',
+    avatar: user?.avatar || '',
+    name: user?.name || '',
+  });
+  const [isRegForm, setIsRegForm] = useState(true);
 
- const user:IUser[] = [
-    {
-        id: 'w6efg46aw5',
-        avatar: 'https://sm.askmen.com/t/askmen_in/article/f/facebook-p/facebook-profile-picture-affects-chances-of-gettin_fr3n.1200.jpg',
-        name: 'Валерий Алексеев',
-        inNetwork: false,
+  useEffect(() => {
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      setCurrentUser(JSON.parse(storedUser));
     }
-]
+  }, []);
+
+  const handleSignOut = () => {
+    signOut(ga).then(() => {
+      window.location.reload();
+    });
+    setCurrentUser({ id: '', avatar: '', name: '' });
+  };
+  /*const storage = firebase.storage();
+  const storageRef = storage.ref();*/
+
+
   return (
-    
-    <div>
-      <Box
-        sx={{
-          display: 'flex',
-          alignItems: 'center',
-        }}
-      >
-        <Card
-          variant='outlined'
+    <>
+      <div>
+        <Box
           sx={{
-            padding: '2',
-            backgroundColor: '#f1f7fa',
-            border: 'none',
-            borderRadius: '10px',
-          }}
-        >
-          
-          {user.map(user => (
-          <Link
-            key={user.id}
-            to={'/profile/${user.id}'} style={{
             display: 'flex',
             alignItems: 'center',
-            textDecoration: 'none',
-            color: '#111',
-          }}>
-            <Box
-              sx={{
-                position: 'relative',
-                marginRight: 2,
-                overflow: 'hidden',
-                width: 50,
-                height: 50,
+          }}
+        >
+          <Card
+            variant='outlined'
+            sx={{
+              padding: '2',
+              backgroundColor: '#f1f7fa',
+              border: 'none',
+              borderRadius: '10px',
+            }}
+          >
+            <Link
+              to={`/profile`}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                textDecoration: 'none',
+                color: '#111',
               }}
             >
-              <Avatar
-                src={user.avatar}
-                alt='esli ne vivel to on mraz'
-                sx={{
-                  width: 48,
-                  height: 48,
-                }}
-              />
-              {user.inNetwork &&
               <Box
                 sx={{
-                  backgroundColor: 'green',
-                  border: '2px solid #f1f7fa',
-                  width: 12,
-                  height: 12,
-                  position: 'absolute',
-                  bottom: 2,
-                  right: 4,
-                  borderRadius: '50%',
+                  position: 'relative',
+                  marginRight: 2,
+                  overflow: 'hidden',
+                  width: 50,
+                  height: 50,
                 }}
-              ></Box>
-}
-            </Box>
+              >
+                <Avatar
+                  src={currentUser.avatar}
+                  alt='пользовательский аватар'
+                  sx={{
+                    width: 48,
+                    height: 48,
+                  }}
+                />
+                <Box
+                  sx={{
+                    backgroundColor: 'green',
+                    border: '2px solid #f1f7fa',
+                    width: 12,
+                    height: 12,
+                    position: 'absolute',
+                    bottom: 2,
+                    right: 4,
+                    borderRadius: '50%',
+                  }}
+                ></Box>
+              </Box>
 
-            <span style={{
-              fontSize: '14',
-            }}>{user.name}</span>
-          </Link>
-          ))}
-        </Card>
-      </Box>
-    </div>
+              <span style={{ fontSize: 14 }}>{currentUser.name}</span>
+            </Link>
+
+            <Link to='/auth'>
+              <Button
+                type='reset'
+                variant='text'
+                onClick={handleSignOut}
+              >
+                Выйти
+              </Button>
+            </Link>
+          </Card>
+        </Box>
+      </div>
+    </>
   );
 };
 

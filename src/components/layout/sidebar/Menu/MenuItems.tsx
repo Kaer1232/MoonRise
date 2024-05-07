@@ -18,7 +18,7 @@ const MenuItems: React.FC = () => {
         variant='outlined'
         sx={{
           padding: '2',
-          backgroundColor: '#f1f7fa',
+          backgroundColor: '#eee6ff',
           border: 'none',
           borderRadius: '10px',
           marginTop: '12px',
