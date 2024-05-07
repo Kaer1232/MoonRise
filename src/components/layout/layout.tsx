@@ -16,7 +16,7 @@ const Layout: FC<PropsWithChildren> = ({children}) => {
                 <Grid item md={2}>
                     <Sidebar/>
                 </Grid>}
-                <Grid item marginLeft={user? 0: 78} marginY={-2.2} md={user? 4: 8} sx={{width: '800px'}}>
+                <Grid item marginLeft={user? 0: '25%'} marginY={-2.2} md={user? 4: 8} sx={{width: '150%'}}>
                     {children}
                 </Grid>
             </Grid>

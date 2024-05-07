@@ -14,9 +14,10 @@ const Messages: React.FC = () => {
         const unsub = onSnapshot(collection(db, 'messages'), (snapshot) => {
             const newMessages: IMessage[] = [];
             snapshot.forEach((doc) => {
-                newMessages.push(doc.data() as IMessage);
+                newMessages.unshift(doc.data() as IMessage);
             });
-            setMessages(newMessages);
+            setMessages(newMessages)
+            
         });
     
         return () => unsub(); // Отписываемся от слушателя при размонтировании компонента
@@ -24,15 +25,18 @@ const Messages: React.FC = () => {
 
       const addMessageHandler = async (e: React.MouseEvent<HTMLButtonElement>) => {
         if (user) {
+            
           try {
             await addDoc(collection(db, 'messages'),{
                 user,
-                message
+                message,
+                timestamp: new Date(),
             })
+            setMessage('');
           } catch (error) {
             console.error('Error adding document:', error);
           }
-          setMessage('');
+          
         }
       };
 
@@ -53,7 +57,7 @@ const Messages: React.FC = () => {
                             </Grid>
                             <Grid item xs={12}>
                                 <ListItemText
-                                 primary={msg.message}>
+                                 primary={msg.message} >
                                 </ListItemText>
                             </Grid>
                             <Grid item xs={12}>

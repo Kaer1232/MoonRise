@@ -81,7 +81,7 @@ const AddPost: React.FC = () => {
           border: 'none',
           borderRadius: '25px',
           backgroundColor: 'white',
-          width: '1300px',
+          width: '200%',
         },
       }}
       sx={{
@@ -96,7 +96,3 @@ const AddPost: React.FC = () => {
 };
 
 export default AddPost;
-
-function setPosts(arg0: (prevPosts: any) => any[]) {
-  throw new Error('Function not implemented.');
-}

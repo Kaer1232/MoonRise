@@ -2,6 +2,7 @@ import { IPost } from "../../../type";
 
 export const inithialPost: IPost[] = [
   {
+    id: "1",
     author: {
       id: '{users.id[]}',
       name: 'Alexander Kasatkin',
@@ -11,8 +12,10 @@ export const inithialPost: IPost[] = [
     createdAdd: "17 Апреля 14:12",
     image: ['https://wp.pulsar42.sc/wp-content/uploads/2018/10/Drake-Kraken-Interior-V006.jpg',
     ],
+    likes: 0,
   },
     {
+        id: "2",
         author: {
           id: '{users.id[]}',
           name: 'Alexey Klimov',
@@ -22,5 +25,6 @@ export const inithialPost: IPost[] = [
         createdAdd: "17 Апреля 10:43",
         image: ['https://smashinglogo.com/v3/envision/image.jpg?id=0557c037-ef24-4b62-bb8a-20737f5bf189&format=desktop',
         ],
+        likes: 2,
       },
 ]

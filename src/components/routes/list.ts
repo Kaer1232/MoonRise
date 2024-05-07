@@ -31,9 +31,4 @@ export const routi =
       element: Auth,
       auth: false,  
       },
-      {
-        path: '/game',
-        element: Home,
-        auth: false,
-      },
 ]
