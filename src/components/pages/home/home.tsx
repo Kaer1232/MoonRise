@@ -6,13 +6,21 @@ import AddPost from "./AddPost";
 import { IPost } from "../../../type";
 import { Posts } from "./Posts";
 import { inithialPost } from "./inithialPost";
+import { useAuth } from "../../providers/useAuth";
+import Auth from "../auth/auth";
 
 const Home: FC = () => {
+  const {db,user} = useAuth()
   return (
   
     <Box alignItems={'center'}>
-      <AddPost/>
+      {user ? (
+        <>
+        <AddPost/>
       <Posts/>
+        </>
+      ):
+    (<Auth/>)}
     </Box>
     
   );

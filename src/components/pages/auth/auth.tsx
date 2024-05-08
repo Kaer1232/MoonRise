@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 
 
 const Auth: React.FC = () => {
+  
   const {ga, user} = useAuth()
   const [buttonClicked, setButtonClicked] = useState(false);
   const [isRegForm, setIsRegForm] = useState(false);
@@ -80,14 +81,17 @@ const Auth: React.FC = () => {
 
     setButtonClicked(true);
   };
-
+  //Ошибка бля
+//{error && <Alert severity="error">{error}</Alert>}
   return (
     <>
-    {error && <Alert severity="error">{error}</Alert>}
     <Card className="container" id="container">
       <Box className="form-container sign-up">
         <form onSubmit={handleLogin} action="">
-          <h1 className="center">Добро пожаловать!</h1>
+        <h1 className="title">MOONRISE</h1>
+          <h1 className="center">
+            Просто регистрация 
+          </h1>
           <div className="social-icons">
             <a href="#" title="Link" className="icon">
               <FontAwesomeIcon icon={faXTwitter} bounce />
@@ -102,17 +106,27 @@ const Auth: React.FC = () => {
               <FontAwesomeIcon icon={faYoutube} bounce />
             </a>
           </div>
-          <TextField InputProps={{ disableUnderline: true }} type="email" placeholder="Email" value={userData.email}
+          
+          <TextField sx={{
+            width: '40%',
+            height: '7%',
+          }} InputProps={{ disableUnderline: true }} type="email" placeholder="Email" value={userData.email}
           onChange={e => setUserData({...userData, email: e.target.value})}/>
-          <TextField type="password" placeholder="Password" value={userData.password}
+          <TextField sx={{
+            width: '40%',
+            height: '7%',
+            borderColor: 'transparent',
+    outline:'none',
+          }} type="password" placeholder="Password" value={userData.password}
           onChange={e => setUserData({...userData, password: e.target.value})}/>
           <Button type='submit' 
-          onClick={() => setIsRegForm(true)}>Зарегистрироваться</Button>
+          onClick={() => setIsRegForm(true)}>Регистрация</Button>
         </form>
       </Box>
       <Box className="form-container sign-in">
         <form onSubmit={handleLogin} action="">
-        <h1>Добро пожаловать!</h1>
+          <h1 className="title">MOONRISE</h1>
+        <h1 className="center">Добро пожаловать!</h1>
         <div className="social-icons">
             <a href="#" title="Link" className="icon">
               <FontAwesomeIcon icon={faXTwitter} bounce />
@@ -128,10 +142,16 @@ const Auth: React.FC = () => {
             </a>
           </div>
 
-          <span>и</span>
-          <TextField type="email" placeholder="Email" value={userData.email}
+          <span >или</span>
+          <TextField sx={{
+            width: '40%',
+            height: '7%',
+          }}type="email" placeholder="Email" value={userData.email}
           onChange={e => setUserData({...userData, email: e.target.value})}/>
-          <TextField type="password" placeholder="Password" value={userData.password}
+          <TextField sx={{
+            width: '40%',
+            height: '7%',
+          }} type="password" placeholder="Password" value={userData.password}
           onChange={e => setUserData({...userData, password: e.target.value})}/>
           <Button type='submit' id="hidden" className="login" onClick={() => setIsRegForm(false)}>
             Войти
@@ -139,18 +159,20 @@ const Auth: React.FC = () => {
         <Box className="toggle-container">
           <Box className="toggle">
             <Box className="toggle-panel toggle-left">
-              <h1></h1>
-              <p>Зарегистрируйтесь, указав свои личные данные, чтобы пользоваться всеми функциями сайта</p>
+              <h1 className="title">Впервые тут?</h1>
+              <h2 className="txt">Придумай свою почту и пароль, чтобы войти в свой аккаунт</h2>
               <Button className="hidden" id="login">
-              У меня уже есть аккаунт
+              Уже есть аккаунт?
               </Button>
+              <h3 className="water-txt">Developed by codeNEXT 2024©</h3>
             </Box>
             <Box className="toggle-panel toggle-right">
-              <h1>Привет, друг!</h1>
-              <p>Введите свои личные данные, чтобы войти в свой аккаунт</p>
+              <h1 className="title">Привет, друг!</h1>
+              <h2 className="txt">Введите свои личные данные, чтобы войти в свой аккаунт</h2>
               <Button className="hidden" id="register" onClick={handleClick}>
                 Нет аккаунта?
               </Button>
+              <h3 className="water-txt">Developed by codeNEXT 2024 ©</h3>
             </Box>
           </Box>
         </Box>

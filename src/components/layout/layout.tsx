@@ -10,7 +10,8 @@ const Layout: FC<PropsWithChildren> = ({children}) => {
     const {user} = useAuth()
     return (
         <>
-        <Headers />
+        {user &&
+        <Headers />}
             <Grid container spacing={3} sx={{paddingX: 5, marginTop: 2,}}>
                 {user &&
                 <Grid item md={2}>

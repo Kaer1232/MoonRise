@@ -66,7 +66,7 @@ const UserItem: React.FC = () => {
                   position: 'relative',
                   marginRight: 2,
                   overflow: 'hidden',
-                  width: 50,
+                  width: 180,
                   height: 50,
                 }}
               >
@@ -84,6 +84,7 @@ const UserItem: React.FC = () => {
                     border: '2px solid #f1f7fa',
                     width: 12,
                     height: 12,
+                    marginRight: 2000,
                     position: 'absolute',
                     bottom: 2,
                     right: 4,
@@ -91,10 +92,12 @@ const UserItem: React.FC = () => {
                   }}
                 ></Box>
               </Box>
-
-              <span style={{ fontSize: 14 }}>{currentUser.name}</span>
+              <span style={{ 
+              position: 'absolute',
+                fontSize: 14,
+              marginLeft:55, 
+              }}>{currentUser.name}</span>
             </Link>
-
             <Link to='/auth'>
               <Button
                 type='reset'

@@ -3,6 +3,7 @@ import { IUser, TypeSetState } from "../../type";
 import { getAuth, onAuthStateChanged, Auth } from "firebase/auth";
 import { initializeApp } from 'firebase/app';
 import { Firestore, getFirestore } from "firebase/firestore";
+import { getStorage } from "firebase/storage"
 
 const firebaseConfig = {
     apiKey: "AIzaSyCpDxDWRsJNSHNRC5Gf9mpwZTHGTuPbqcg",
@@ -26,6 +27,7 @@ interface IContext {
 
 const ga = getAuth()
 export const AuthContext = createContext<IContext>({} as IContext)
+export const storage = getStorage(app)
 
 export const AuthProvider: React.FC<PropsWithChildren> = ({children}) => {
     const [user, setUser] = useState<IUser | null>(null);

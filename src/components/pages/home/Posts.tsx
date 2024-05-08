@@ -13,7 +13,6 @@ export const Posts: React.FC = () => {
   const [posts, setPosts] = useState<IPost[]>([]);
   const [editingPostId, setEditingPostId] = useState<string>('');
   const [newContent, setNewContent] = useState<string>('');
-  let isRedacted: boolean = false;
 
 
  useEffect(() => {
@@ -96,23 +95,14 @@ export const Posts: React.FC = () => {
               fontSize: '14',
               opacity: '0.6',
             }}>{post.createdAdd}</span>
-            <Button sx={{
-                borderRadius: '40%',
-                marginLeft: '70px',
-                marginBottom: '100px',
-                display: 'flex',
-                justifyContent: 'flex-end',
-                paddingLeft: '10px',
-              }}
-              variant="text"
-              >
-            </Button>
               </div>
             </div>
           <p>
             <span style={{color:'white'}}>пасхалОЧКА</span>
             <br />
-            {post.content}
+            <p style={{ whiteSpace: 'pre-wrap' }}>{post.content}</p>
+              
+            
             {post?.image?.length && (
                 <ImageList variant='masonry' cols={1} gap={1}>
                 {post.image.map(image =>(
@@ -126,9 +116,11 @@ export const Posts: React.FC = () => {
                 ))}
                 </ImageList>
             )}
+            <br />
             { post.author.id === user?.id && (
             <><Button onClick={() => handleDelete(post.id)}>Удалить</Button><div key={`Post-${idx}`}>
                 {editingPostId === post.id ? (
+                  
                   <div>
                     <TextField value={newContent} onChange={(e) => setNewContent(e.target.value)} />
                     <Button onClick={() => handleEdit(post.id, newContent)}>Сохранить изменения</Button>
